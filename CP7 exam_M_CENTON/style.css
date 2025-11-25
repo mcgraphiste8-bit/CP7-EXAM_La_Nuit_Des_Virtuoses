@@ -1,0 +1,614 @@
+/****************************************
+ * 1. RESET MODERNE
+ ****************************************/
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/****************************************
+ * 2. VARIABLES GLOBALES — CHARTE REFAITE
+ ****************************************/
+:root {
+    /* Couleurs principales */
+    --color-dark: #181b3b;              /* fond principal */
+    --color-dark-light: #2a2e5e;        /* fond secondaire */
+    --color-light: #ffffff;
+    --color-grey: #f0f0f0;
+
+    /* Accents basé sur la charte du site original */
+    --color-primary: #1e73be;           /* bleu principal */
+    --color-secondary: #8491c7;         /* bleu/lavande pour hover / accents */
+
+    /* Couleurs de contraste */
+    --color-contrast: #222222;
+    --color-contrast-2: #575760;
+    --color-contrast-3: #b2b2be;
+
+    --color-blueish-white: #d4dcff;     /* éléments en relief */
+
+    /* Utilitaires */
+    --font-main: "Montserrat", sans-serif;
+    --font-title: "Montserrat Alternates", sans-serif;
+
+    --max-width: 1200px;
+    --header-height: 80px;
+
+    --shadow-soft: 0 4px 12px rgba(0,0,0,0.2);
+    --shadow-strong: 0 10px 30px rgba(0,0,0,0.35);
+
+    --radius: 10px;
+    --radius-lg: 16px;
+
+    --transition: .3s ease;
+}
+
+/****************************************
+ * 3. TYPOGRAPHIE GLOBALE
+ ****************************************/
+body {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background: var(--color-dark);
+    color: var(--color-light);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-title);
+    font-weight: 700;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.3rem;
+    margin: 2.5rem 0;
+    letter-spacing: 1px;
+}
+
+/****************************************
+ * 4. CONTENEURS & LAYOUT
+ ****************************************/
+.header__container,
+.accueil__container,
+.artists-carousel__container,
+.partners__grid,
+.footer__container,
+.ticket__form {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+/****************************************
+ * 4B. UTILITAIRES
+ ****************************************/
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+html, body { overflow-x: hidden; }
+
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+@media (max-width: 850px) { section { padding: 3.2rem 0; } }
+@media (max-width: 550px) { section { padding: 2.6rem 0; } }
+@media (max-width: 400px) { section { padding: 2rem 0; } }
+
+/****************************************
+ * 5. HEADER
+ ****************************************/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.header__logo img {
+    height: 70px;
+    width: auto;
+    transition: var(--transition);
+}
+
+.header__nav {
+    position: absolute;
+    right: 2rem;
+}
+
+.header__nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.header__nav-list a {
+    color: var(--color-light);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-bottom: 4px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.header__nav-list a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-secondary);
+    transition: var(--transition);
+}
+
+.header__nav-list a:hover::after,
+.header__nav-list a:focus::after { width: 100%; }
+.header__nav-list a:hover { color: var(--color-secondary); }
+
+/****************************************
+ * BURGER
+ ****************************************/
+.header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.header__burger span {
+    width: 100%;
+    height: 3px;
+    background: var(--color-light);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+@media (max-width: 850px) {
+    .header__burger { display: flex; }
+
+    .header__nav {
+        top: var(--header-height);
+        right: 0;
+        width: 70%;
+        background: rgba(0,0,0,0.92);
+        backdrop-filter: blur(6px);
+        transform: translateX(100%);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        box-shadow: var(--shadow-strong);
+        z-index: 1050;
+    }
+
+    .header__nav.open { transform: translateX(0); opacity: 1; }
+
+    .header__nav-list {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .header__burger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .header__burger.active span:nth-child(2) { opacity: 0; }
+    .header__burger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/****************************************
+ * 6. HERO
+ ****************************************/
+.hero {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url("images/ndv_2025_header.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(24,27,59,0.55);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero__edition {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.hero__sup {
+    font-size: 0.6em;
+    vertical-align: super;
+}
+
+.hero__subtitle {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: 0.3px;
+}
+
+.hero__btn-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero__btn {
+    display: inline-block;
+    background: var(--color-primary);
+    color: var(--color-light);
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.hero__btn:hover {
+    background: var(--color-secondary);
+    color: var(--color-light);
+}
+
+@media (max-width: 900px) {
+    .hero { height: 75vh; }
+    .hero__edition { font-size: 2.5rem; }
+    .hero__subtitle { font-size: 2.2rem; }
+}
+
+@media (max-width: 600px) {
+    .hero { height: 65vh; padding: 0 1rem; }
+    .hero__edition { font-size: 2rem; }
+    .hero__subtitle { font-size: 1.8rem; }
+    .hero__btn { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+}
+
+/****************************************
+ * 7. INTRO
+ ****************************************/
+.intro {
+    background: var(--color-dark);
+    padding: 8rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.intro__container {
+    width: 90%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.intro__img {
+    width: 38%;
+    max-width: 350px;
+    transform: scale(1.05);
+    border-radius: var(--radius);
+}
+
+.intro__text {
+    width: 60%;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-blueish-white);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+    .intro__container { flex-direction: column; text-align: center; }
+    .intro__img, .intro__text { width: 100%; }
+    .intro__text { font-size: 1.1rem; }
+}
+
+/****************************************
+ * 8. ACCUEIL
+ ****************************************/
+.accueil {
+    background: var(--color-dark-light);
+    color: var(--color-light);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.accueil__container {
+    width: 90%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accueil__title {
+    font-size: 2.6rem;
+    color: var(--color-blueish-white);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 0.8s ease-out forwards;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.accueil__title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--color-secondary);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.accueil__text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-blueish-white);
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideUpFade 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+    max-width: 700px;
+}
+
+@keyframes slideUpFade {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .accueil__title { font-size: 2.2rem; }
+    .accueil__text { font-size: 1.05rem; }
+}
+
+@media (max-width: 600px) {
+    .accueil { padding: 3rem 0; }
+    .accueil__title { font-size: 1.9rem; }
+    .accueil__text { font-size: 1rem; line-height: 1.6; }
+}
+
+
+/****************************************
+ * 9. SECTION PROGRAMMATION — VERSION CHARTÉE
+ ****************************************/
+.artists-carousel {
+    padding: 5rem 0;
+    background: var(--color-dark-light); /* Fond légèrement plus clair que le header */
+    color: var(--color-light);
+    position: relative;
+}
+
+.artists-carousel .section-title {
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    color: var(--color-blueish-white);
+    letter-spacing: 0.5px;
+}
+
+/* --- CARROUSEL --- */
+.carousel__track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+
+    /* Scrollbar esthétique */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-dark-light);
+}
+
+.carousel__track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel__track::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+}
+
+.carousel__track::-webkit-scrollbar-track {
+    background: var(--color-dark-light);
+}
+
+/* --- CARTE ARTISTE --- */
+.carousel__item {
+    position: relative;
+    min-width: 260px;
+    height: 340px;
+    flex-shrink: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-dark);
+    box-shadow: var(--shadow-soft);
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: itemFadeIn 0.6s ease forwards;
+}
+
+@keyframes itemFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation progressive pour chaque élément */
+.carousel__item:nth-child(1) { animation-delay: 0.05s; }
+.carousel__item:nth-child(2) { animation-delay: 0.10s; }
+.carousel__item:nth-child(3) { animation-delay: 0.15s; }
+.carousel__item:nth-child(4) { animation-delay: 0.20s; }
+.carousel__item:nth-child(5) { animation-delay: 0.25s; }
+.carousel__item:nth-child(6) { animation-delay: 0.30s; }
+
+.carousel__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.carousel__item:hover img {
+    transform: scale(1.05);
+}
+
+/* --- OVERLAY NOM ARTISTE --- */
+.carousel__overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.05));
+    color: var(--color-light);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+/* --- BOUTONS DE NAVIGATION --- */
+.carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: var(--color-primary);
+    border: none;
+    color: var(--color-light);
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: background 0.25s ease, opacity 0.3s ease;
+    z-index: 10;
+    box-shadow: var(--shadow-strong);
+}
+
+.carousel__btn:hover {
+    background: var(--color-secondary);
+}
+
+.carousel__btn--prev { left: -10px; }
+.carousel__btn--next { right: -10px; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .carousel__item { min-width: 220px; height: 300px; }
+}
+
+@media (max-width: 768px) {
+    .carousel__btn { display: none; }
+    .carousel__item { min-width: 180px; height: 260px; }
+}
+
+@media (max-width: 480px) {
+    .carousel__item { min-width: 150px; height: 220px; }
+    .carousel__overlay { font-size: 1rem; padding: 8px; }
+}
+
+
+/****************************************
+ * 10. BOUTONS GLOBAUX
+ ****************************************/
+.hero__btn,
+.ticket__btn,
+.btn-primary {
+    display: inline-block;
+    background: var(--color-primary);
+    color: var(--color-light);
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.hero__btn:hover,
+.ticket__btn:hover,
+.btn-primary:hover {
+    background: var(--color-secondary);
+    color: var(--color-light);
+}

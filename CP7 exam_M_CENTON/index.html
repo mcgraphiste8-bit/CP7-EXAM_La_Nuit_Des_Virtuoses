@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Nuit des Virtuoses | Île de La Réunion</title>
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header__container">
+
+            <!-- Logo à gauche -->
+            <a href="#accueil" class="header__logo">
+                <img src="Images/logo_ndv_white.png" alt="La Nuit des Virtuoses">
+                <h1 class="visually-hidden">La Nuit des Virtuoses</h1>
+            </a>
+
+            <!-- Navigation principale -->
+            <nav class="header__nav" aria-label="Navigation principale">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#accueil">Accueil</a></li>
+                    <li class="header__nav-item"><a href="#programmation">Artistes</a></li>
+                    <li class="header__nav-item"><a href="#editions">Éditions</a></li>
+                    <li class="header__nav-item"><a href="#partenaires">Partenaires</a></li>
+                    <li class="header__nav-item"><a href="#billetterie">Billetterie</a></li>
+                </ul>
+            </nav>
+
+            <!-- Bouton burger pour mobile -->
+            <button class="header__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero__content">
+                <!-- 16e édition avec e en exposant -->
+                <div class="hero__edition">
+                    16<span class="hero__sup">e</span> édition :
+                </div>
+
+                <!-- Dates sous “16e édition” -->
+                <div class="hero__subtitle">
+                    Du 2 au 6 avril 2025
+                </div>
+
+                <!-- Boutons côte à côte -->
+                <div class="hero__btn-container">
+                    <a href="#billetterie" class="hero__btn">Réservation</a>
+                    <a href="#programmation" class="hero__btn">Programme</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- INTRO -->
+        <section class="intro">
+            <div class="intro__container">
+                <!-- Image à gauche -->
+                <img src="images/edition_2017.webp" 
+                    alt="Festival de la Nuit des Virtuoses 2017" 
+                    class="intro__img">
+
+                <!-- Texte à droite -->
+                <p class="intro__text">
+                    Utopie artistique assumée, l’événement musical annuel du Théâtre Luc Donat
+                    est devenu le rendez-vous incontournable des mélomanes en quête d’émotions<br>
+                    et de découvertes.
+                </p>
+            </div>
+        </section>
+
+        <!-- ACCUEIL -->
+        <section id="accueil" class="accueil">
+            <div class="accueil__container">
+                <!-- Titre animé style citation -->
+                <h2 class="accueil__title">
+                    Le rendez-vous des oreilles curieuses
+                </h2>
+
+                <!-- Texte descriptif -->
+                <p class="accueil__text">
+                    Ouvertement non élitiste mais populaire, tous les genres musicaux peuvent s’y
+                    côtoyer et s’y mélanger dans une universalité de langage déconcertante. Virtuosité
+                    insolente, musicalité envoutante, tels sont les critères de choix évoqués pour
+                    toujours proposer une programmation hors du commun, jamais semblable d’une
+                    année à l’autre, mais toujours exceptionnelle.
+                </p>
+                <p class="accueil__text">
+                    Composée d’artistes internationaux et locaux extraordinaires, la Nuit des Virtuoses
+                    surprend et emporte aux frontières de l’inclassable.
+                </p>
+            </div>
+        </section>
+
+        <!-- PROGRAMMATION -->
+        <section id="programmation" class="artists-carousel">
+            <div class="artists-carousel__container">
+                <h2 class="section-title">Programmation</h2>
+
+                <div class="carousel__navigation">
+                    <button class="carousel__btn carousel__btn--prev" aria-label="Voir les artistes précédents">‹</button>
+                    <button class="carousel__btn carousel__btn--next" aria-label="Voir les artistes suivants">›</button>
+                </div>
+
+                <div class="carousel__track" tabindex="0" aria-label="Galerie des artistes">
+                    <article class="carousel__item">
+                        <img src="images/lucia_micarelli-768x768.webp" alt="Photo de Lucia Micarelli">
+                        <div class="carousel__overlay">Lucia Micarelli</div>
+                    </article>
+                    <article class="carousel__item">
+                        <img src="images/max_zt-768x768.webp" alt="Photo de Max ZT">
+                        <div class="carousel__overlay">Max ZT</div>
+                    </article>
+                    <article class="carousel__item">
+                        <img src="images/mohini_dey-768x768.webp" alt="Photo de Mohini Dey">
+                        <div class="carousel__overlay">Mohini Dey</div>
+                    </article>
+                    <article class="carousel__item">
+                        <img src="images/serkan_cagri-768x768.webp" alt="Photo de Serkan Cagri">
+                        <div class="carousel__overlay">Serkan Cagri</div>
+                    </article>
+                    <article class="carousel__item">
+                        <img src="images/sona_jobarteh-768x768.webp" alt="Photo de Soana Jobarteh">
+                        <div class="carousel__overlay">Soana Jobarteh</div>
+                    </article>
+                    <article class="carousel__item">
+                        <img src="images/yannick_robert-768x768.webp" alt="Photo de Yannick Robert">
+                        <div class="carousel__overlay">Yannick Robert</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÉDITIONS -->
+        <section id="editions" class="editions">
+            <h2 class="section-title">Éditions</h2>
+
+            <!-- ÉDITION ACTUELLE -->
+            <article class="edition-card edition-card--current">
+                <div class="edition-card__badge">2025</div>
+                <div class="edition-card__image">
+                    <img src="images/edition-16.jpg" alt="16e édition">
+                </div>
+                <div class="edition-card__content">
+                    <h3 class="edition-card__title">16e édition</h3>
+                    <p class="edition-card__description">Lorem ipsum…</p>
+                </div>
+            </article>
+
+            <!-- ANCIENNES ÉDITIONS -->
+            <div class="edition-card__previous">
+                <article class="edition-card edition-card--small">
+                    <div class="edition-card__badge">2024</div>
+                    <img src="images/edition-15.jpg" alt="15e édition">
+                    <h4 class="edition-card__title--small">15e édition</h4>
+                </article>
+                <article class="edition-card edition-card--small">
+                    <div class="edition-card__badge">2023</div>
+                    <img src="images/edition-14.jpg" alt="14e édition">
+                    <h4 class="edition-card__title--small">14e édition</h4>
+                </article>
+            </div>
+
+            <div class="edition-card__more-wrapper">
+                <button class="edition-card__btn" aria-expanded="false" aria-controls="more-editions">
+                    Voir plus d'éditions
+                </button>
+            </div>
+
+            <div id="more-editions" class="edition-card__more" aria-hidden="true">
+                <article class="edition-card edition-card--small">
+                    <div class="edition-card__badge">2022</div>
+                    <img src="images/edition-13.jpg" alt="13e édition">
+                    <h4 class="edition-card__title--small">13e édition</h4>
+                </article>
+                <article class="edition-card edition-card--small">
+                    <div class="edition-card__badge">2021</div>
+                    <img src="images/edition-12.jpg" alt="12e édition">
+                    <h4 class="edition-card__title--small">12e édition</h4>
+                </article>
+                <article class="edition-card edition-card--small">
+                    <div class="edition-card__badge">2020</div>
+                    <img src="images/edition-11.jpg" alt="11e édition">
+                    <h4 class="edition-card__title--small">11e édition</h4>
+                </article>
+            </div>
+        </section>
+
+        <!-- PARTENAIRES -->
+        <section id="partenaires" class="partners">
+            <h2 class="section-title">Nos partenaires</h2>
+            <p class="section-subtitle">Ils soutiennent La Nuit des Virtuoses et contribuent à sa réussite</p>
+            <div class="partners__grid">
+                <div class="partner"><img src="images/partner1.png" alt="Partenaire 1"></div>
+                <div class="partner"><img src="images/partner2.png" alt="Partenaire 2"></div>
+                <div class="partner"><img src="images/partner3.png" alt="Partenaire 3"></div>
+                <div class="partner"><img src="images/partner4.png" alt="Partenaire 4"></div>
+            </div>
+        </section>
+
+        <!-- BILLETTERIE -->
+        <section id="billetterie" class="ticket">
+            <h2 class="section-title">Billetterie</h2>
+            <p class="section-subtitle">Réservez vos billets directement ici</p>
+
+            <form class="ticket__form" aria-label="Formulaire de réservation">
+                <div class="ticket__group">
+                    <label for="ticket-type">Type de billet</label>
+                    <select id="ticket-type" name="ticket-type">
+                        <option value="plein">Plein tarif - 25€</option>
+                        <option value="reduit">Tarif réduit - 15€</option>
+                        <option value="gratuit">Gratuit (moins de 12 ans)</option>
+                    </select>
+                </div>
+
+                <div class="ticket__group">
+                    <label for="quantity">Quantité</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+                </div>
+
+                <div class="ticket__group">
+                    <button type="submit" class="ticket__btn">Réserver</button>
+                </div>
+            </form>
+
+            <p class="ticket__info">*Tous les billets sont électroniques et disponibles immédiatement après réservation.</p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__logo">
+                <a href="/" aria-label="Retour à l'accueil"><img src="images/logo.png" alt="La Nuit des Virtuoses"></a>
+            </div>
+            <nav class="footer__nav" aria-label="Liens utiles">
+                <ul class="footer__nav-list">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#programmation">Programmation</a></li>
+                    <li><a href="#editions">Éditions</a></li>
+                    <li><a href="#artistes">Artistes</a></li>
+                    <li><a href="#partenaires">Partenaires</a></li>
+                    <li><a href="#billetterie">Billetterie</a></li>
+                </ul>
+            </nav>
+            <div class="footer__social">
+                <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">FB</a>
+                <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">IG</a>
+                <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer">TW</a>
+            </div>
+            <div class="footer__copy">
+                <p>&copy; 2025 La Nuit des Virtuoses. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
